@@ -11,8 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SendFormActivity"></activity>
-        <activity android:name=".ui.addBlock.ChooseAddTypeActivity" />
+        <activity android:name=".MeFormActivity"></activity>
+        <activity android:name=".MyLoveFormActivity" />
         <activity android:name=".ui.addBlock.ChooseAddType_3Fragment" />
         <activity android:name=".ui.addBlock.ChooseAddType_2Fragment" />
         <activity android:name=".ui.addBlock.ChooseAddType_1Fragment" />

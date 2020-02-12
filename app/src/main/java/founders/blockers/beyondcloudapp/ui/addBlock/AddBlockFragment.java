@@ -1,20 +1,24 @@
 package founders.blockers.beyondcloudapp.ui.addBlock;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import founders.blockers.beyondcloudapp.MeFormActivity;
 import founders.blockers.beyondcloudapp.R;
+import founders.blockers.beyondcloudapp.MyLoveFormActivity;
 
 public class AddBlockFragment extends Fragment {
+
+    Button myLoveBtn;
+    Button meBtn;
 
     private AddBlockViewModel addBlockViewModel;
 
@@ -23,15 +27,33 @@ public class AddBlockFragment extends Fragment {
         addBlockViewModel =
                 ViewModelProviders.of(this).get(AddBlockViewModel.class);
         View root = inflater.inflate(R.layout.fragment_addblock, container, false);
-        final TextView textView = root.findViewById(R.id.text_addblock);
-        addBlockViewModel.getText().observe(this, new Observer<String>() {
+
+        myLoveBtn = (Button) root.findViewById(R.id.add_btn_1);
+        meBtn = (Button) root.findViewById(R.id.add_btn_2);
+
+
+        myLoveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), MyLoveFormActivity.class);
+                startActivity(intent);
             }
         });
+
+        meBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), MeFormActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         return root;
     }
+
+
+
 
 
 }
