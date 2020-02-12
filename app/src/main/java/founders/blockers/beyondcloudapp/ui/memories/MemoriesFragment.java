@@ -23,7 +23,7 @@ public class MemoriesFragment extends Fragment {
         memoriesViewModel =
                 ViewModelProviders.of(this).get(MemoriesViewModel.class);
         View root = inflater.inflate(R.layout.fragment_memories, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
+        final TextView textView = root.findViewById(R.id.text_memories);
         memoriesViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

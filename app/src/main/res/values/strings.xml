@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BeyondCloudApp</string>
+    <string name="app_name">BeyondCloud</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -13,4 +13,6 @@
     <string name="menu_setting">Setting</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+
+
 </resources>

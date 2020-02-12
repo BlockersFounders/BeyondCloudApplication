@@ -16,15 +16,15 @@ import founders.blockers.beyondcloudapp.R;
 
 public class AddBlockFragment extends Fragment {
 
-    private AddBlockViewModel galleryViewModel;
+    private AddBlockViewModel addBlockViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
+        addBlockViewModel =
                 ViewModelProviders.of(this).get(AddBlockViewModel.class);
         View root = inflater.inflate(R.layout.fragment_addblock, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
-        galleryViewModel.getText().observe(this, new Observer<String>() {
+        final TextView textView = root.findViewById(R.id.text_addblock);
+        addBlockViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
@@ -32,4 +32,6 @@ public class AddBlockFragment extends Fragment {
         });
         return root;
     }
+
+
 }

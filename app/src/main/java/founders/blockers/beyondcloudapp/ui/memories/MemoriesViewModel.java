@@ -10,7 +10,7 @@ public class MemoriesViewModel extends ViewModel {
 
     public MemoriesViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("This is memories fragment");
     }
 
     public LiveData<String> getText() {

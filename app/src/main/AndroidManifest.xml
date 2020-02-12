@@ -11,6 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SendFormActivity"></activity>
+        <activity android:name=".ui.addBlock.ChooseAddTypeActivity" />
+        <activity android:name=".ui.addBlock.ChooseAddType_3Fragment" />
+        <activity android:name=".ui.addBlock.ChooseAddType_2Fragment" />
+        <activity android:name=".ui.addBlock.ChooseAddType_1Fragment" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,8 +26,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

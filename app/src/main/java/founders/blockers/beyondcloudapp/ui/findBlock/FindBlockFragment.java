@@ -23,7 +23,7 @@ public class FindBlockFragment extends Fragment {
         findBlockViewModel =
                 ViewModelProviders.of(this).get(FindBlockViewModel.class);
         View root = inflater.inflate(R.layout.fragment_findblock, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
+        final TextView textView = root.findViewById(R.id.text_findblock);
         findBlockViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

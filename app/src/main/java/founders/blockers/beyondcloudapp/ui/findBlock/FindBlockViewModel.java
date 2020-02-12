@@ -10,7 +10,7 @@ public class FindBlockViewModel extends ViewModel {
 
     public FindBlockViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        mText.setValue("This is findBlock fragment");
     }
 
     public LiveData<String> getText() {

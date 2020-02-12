@@ -10,7 +10,7 @@ public class AddBlockViewModel extends ViewModel {
 
     public AddBlockViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("This is addBlock fragment");
     }
 
     public LiveData<String> getText() {
