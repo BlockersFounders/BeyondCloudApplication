@@ -1,4 +1,4 @@
-package founders.blockers.beyondcloudapp.function;
+package founders.blockers.beyondcloudapp;
 /*
 
  createTx() : link to web3 transaction-creation function
@@ -21,7 +21,7 @@ import java.util.Collections;
 import static java.util.Collections.singletonList;
 
 public class FunctionUtils {
-    public static final String CONTRACT_ADDRESS = "0x1425cbbbfb6d3c309c81fc8193e2e38f94c333b7";
+//    public static final String CONTRACT_ADDRESS = "0x1425cbbbfb6d3c309c81fc8193e2e38f94c333b7";
 
     public static Function createTx(String name, String date, String content){
         return new Function(
@@ -31,8 +31,7 @@ public class FunctionUtils {
                         new Utf8String(date),
                         new Utf8String(content)
                 ),
-                Collections.emptyList()
-        );
+                Collections.emptyList());
     }
 
     public static Function callTx(int key){

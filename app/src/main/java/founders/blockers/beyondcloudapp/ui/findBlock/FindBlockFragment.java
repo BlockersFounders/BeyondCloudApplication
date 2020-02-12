@@ -30,7 +30,7 @@ public class FindBlockFragment extends Fragment {
                 ViewModelProviders.of(this).get(FindBlockViewModel.class);
         View root = inflater.inflate(R.layout.fragment_findblock, container, false);
 
-        searchBtn = (Button) root.findViewById(R.id.search_btn);
+        searchBtn = (Button) root.findViewById(R.id.add_btn_1);
 
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override

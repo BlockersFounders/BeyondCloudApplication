@@ -15,4 +15,6 @@
     <string name="menu_send">Send</string>
 
 
+    <string name="loading_caution">블록체인 트랜잭션 조회중입니다. 3초만 기다려주세요.</string>
+
 </resources>
