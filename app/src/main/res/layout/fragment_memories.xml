@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
@@ -17,12 +18,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/nameGet"
             android:layout_width="297dp"
             android:layout_height="match_parent"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/search"
@@ -32,55 +32,60 @@
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="425dp"
-        android:layout_height="768dp"
+        android:layout_height="match_parent"
         android:layout_marginStart="1dp"
         android:layout_marginBottom="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
             android:id="@+id/imageInputData"
-            android:layout_width="311dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="95dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView4"
+            android:layout_width="289dp"
+            android:layout_height="270dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars[3]" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="33dp"
+            android:layout_height="43dp"
             android:layout_marginStart="22dp"
             android:layout_marginTop="19dp"
             android:layout_marginBottom="4dp"
             android:text="이름"
             app:layout_constraintBottom_toTopOf="@+id/name_field"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintTop_toBottomOf="@+id/imageInputData" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginBottom="412dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="372dp"
             android:text="생몰년월"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintTop_toBottomOf="@+id/name_field" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="346dp"
+
             android:text="생전 기록"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/birth_field" />
 
@@ -99,8 +104,9 @@
             android:id="@+id/birth_field"
             android:layout_width="372dp"
             android:layout_height="51dp"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toTopOf="@+id/textView5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -109,12 +115,12 @@
             android:id="@+id/will_field"
             android:layout_width="375dp"
             android:layout_height="150dp"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="169dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="123dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

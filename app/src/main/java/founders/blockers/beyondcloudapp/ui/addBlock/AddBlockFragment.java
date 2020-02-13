@@ -37,6 +37,7 @@ public class AddBlockFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), MyLoveFormActivity.class);
                 startActivity(intent);
+                return;
             }
         });
 

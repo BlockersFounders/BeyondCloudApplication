@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,6 +24,7 @@ import com.samsung.android.sdk.blockchain.wallet.HardwareWallet;
 import com.samsung.android.sdk.blockchain.wallet.HardwareWalletType;
 
 import org.jetbrains.annotations.NotNull;
+import org.web3j.abi.FunctionEncoder;
 import org.web3j.abi.FunctionReturnDecoder;
 import org.web3j.abi.TypeReference;
 import org.web3j.abi.datatypes.Function;
@@ -41,10 +43,15 @@ import founders.blockers.beyondcloudapp.function.FunctionUtils;
 public class MemoriesFragment extends Fragment {
 
     Button searchBtn;
+    EditText result;
     TextView _name;
     TextView _birth;
     TextView _will;
     ImageView image;
+    String ahn;
+    String jackson;
+    String kobe;
+    String editResult;
 
     private SBlockchain sBlockchain;
     private HardwareWallet hardwareWallet;
@@ -62,12 +69,16 @@ public class MemoriesFragment extends Fragment {
 
         sBlockchain = new SBlockchain();
         image=root.findViewById(R.id.imageInputData);
+        ahn="안중근";
+        jackson="마이클잭슨";
+        kobe="코비 브라이언트";
 
         try {
             sBlockchain.initialize(getContext());
         } catch (SsdkUnsupportedException e) {
             e.printStackTrace();
         }
+        image.setImageResource(R.drawable.logo);
 
         _name=root.findViewById(R.id.name_field);
         _birth=root.findViewById(R.id.birth_field);
@@ -76,7 +87,18 @@ public class MemoriesFragment extends Fragment {
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                printOne();
+                result=root.findViewById(R.id.nameGet);
+                editResult=result.getText().toString();
+
+                printOne(editResult);
+                if (editResult.equals(ahn)){
+                    image.setImageResource(R.drawable.ahn);
+                }else if(editResult.equals(jackson)){
+                    Log.d("same","same");
+                    image.setImageResource(R.drawable.jackson);
+                }else if(editResult.equals(kobe)){
+                    image.setImageResource(R.drawable.kobe);
+                }
             }
         });
 
@@ -85,7 +107,7 @@ public class MemoriesFragment extends Fragment {
     }
 
 
-    private void printOne(){
+    private void printOne(String r){
 
         sBlockchain.getHardwareWalletManager()
                 .connect(HardwareWalletType.SAMSUNG, true)
@@ -102,90 +124,47 @@ public class MemoriesFragment extends Fragment {
                                 "https://ropsten.infura.io/v3/70ddb1f89ca9421885b6268e847a459d"
                         );
 
-                         List<Account> accountList = sBlockchain.getAccountManager()
+                        List<Account> accountList = sBlockchain.getAccountManager()
                                 .getAccounts(hardwareWallet.getWalletId(),
                                         CoinType.ETH,
                                         EthereumNetworkType.ROPSTEN);
 
                         EthereumService ethereumService = (EthereumService) CoinServiceFactory.getCoinService(getContext(), coinNetworkInfo);
+                        Function functionGetPost = FunctionUtils.StringtoHex(r);
+                        String data = FunctionEncoder.encode(functionGetPost);
+                        data=data.substring(10);
 
                         ethereumService.callSmartContractFunction(
                                 (EthereumAccount) accountList.get(0),
                                 "0x4af1b6125cca1b8cb15363aed2cc64c01937a5db",
-                                "0x7355a424"
+                                "0xb336ad83"+data
                         ).setCallback(new ListenableFutureTask.Callback<String>() {
                             @Override
                             public void onSuccess(String s) {
-                                Log.d("SUCCESS TAG", "account link success : "+s );
-
-                                Function functionGetPost = FunctionUtils.countTx();
-
+                                Log.d("SUCCESS TAG", "get data : "+s );
+                                Function functionGetPost = FunctionUtils.callBlockByName(s);
                                 List<TypeReference<Type>> outputParameters = functionGetPost.getOutputParameters();
-
                                 List<Type> types = FunctionReturnDecoder.decode(s, outputParameters);
 
-                                Type type = types.get(0);
+                                Log.d("hi",(String)types.get(0).getValue());
+                                Log.d("hi",(String)types.get(1).getValue());
+                                Log.d("hi",(String)types.get(2).getValue());
 
-                                BigInteger post = (BigInteger) type.getValue();
-
-                                int length=post.intValue()-1;
-
-                                if (length < 10){
-
-                                    to = Integer.toString(length);
-                                    to="0"+to;
-
-                                }else{
-
-                                    to = Integer.toString(length);
-                                }
-
-                                ethereumService.callSmartContractFunction(
-                                        (EthereumAccount) accountList.get(0),
-                                        "0x4af1b6125cca1b8cb15363aed2cc64c01937a5db",
-                                        "0x9507d39a000000000000000000000000000000000000000000000000000000000000000a" //a : 10~
-                                ).setCallback(new ListenableFutureTask.Callback<String>() {
-                                    @Override
-                                    public void onSuccess(String s) {
-                                        Log.d("SUCCESS TAG", "get data : "+s );
-
-                                        Function functionGetPost = FunctionUtils.callTx(length);
-
-                                        List<TypeReference<Type>> outputParameters = functionGetPost.getOutputParameters();
-
-                                        List<Type> types = FunctionReturnDecoder.decode(s, outputParameters);
-
-                                        Log.d("SUCCESS TAG", (String) types.get(0).getValue());
-                                        Log.d("SUCCESS TAG", (String) types.get(1).getValue());
-                                        Log.d("SUCCESS TAG", (String) types.get(2).getValue());
-
-                                        _name.setText((String)types.get(0).getValue());
-                                        _birth.setText((String)types.get(1).getValue());
-                                        _will.setText((String)types.get(2).getValue());
-
-                                    }
-
-                                    @Override
-                                    public void onFailure(@NotNull ExecutionException e) {
-                                        Log.d("ERROR TAG #201", e.toString());
-                                    }
-
-                                    @Override
-                                    public void onCancelled(@NotNull InterruptedException e) {
-                                        Log.d("ERROR TAG #202", e.toString());
-                                    }
-                                });
+                                //확인차 log값
+                                _name.setText((String)types.get(0).getValue());
+                                _birth.setText((String)types.get(1).getValue());
+                                _will.setText((String)types.get(2).getValue());
 
                             }
 
                             @Override
                             public void onFailure(@NotNull ExecutionException e) {
-                                Log.d("ERROR TAG #101", e.toString());
+                                Log.d("ERROR TAG #201", e.toString());
                             }
 
                             @Override
                             public void onCancelled(@NotNull InterruptedException e) {
-                                Log.d("ERROR TAG #102", e.toString());
+                                Log.d("ERROR TAG #202", e.toString());
                             }
                         });
 

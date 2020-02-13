@@ -58,4 +58,35 @@ public class FunctionUtils {
         );
     }
 
+    public static Function callBlockByName(String key) {
+        return new Function("get"
+                ,Arrays.asList(
+                new Utf8String(key))
+                , Arrays.asList(
+                new TypeReference<Utf8String>() {
+                }
+                , new TypeReference<Utf8String>() {
+                }
+                , new TypeReference<Utf8String>() {
+                }
+
+
+        ));
+    }
+
+    public static Function InttoHex(int key){
+        return new Function("get"
+                ,   singletonList(new Uint(BigInteger.valueOf(key)))
+                ,  Collections.emptyList());
+
+    }
+
+
+    public static Function StringtoHex(String result) {
+        return new Function("nope"
+                ,Arrays.asList(
+                new Utf8String(result))
+                ,  Collections.emptyList());
+
+    }
 }

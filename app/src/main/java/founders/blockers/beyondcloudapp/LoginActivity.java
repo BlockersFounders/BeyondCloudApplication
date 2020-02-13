@@ -110,11 +110,11 @@ public class LoginActivity extends AppCompatActivity{
                         Log.d("SUCCESS TAG", "connection success");
                         connectionMsg = "connection success";
 
-                        List<Account> accounts = sBlockchain.getAccountManager()
+                        List<Account> accountList = sBlockchain.getAccountManager()
                                 .getAccounts(hardwareWallet.getWalletId(), CoinType.ETH, EthereumNetworkType.ROPSTEN);// parameter String, CoinType, NetworkType 3 중 1개만 입력해도 가능
 
 
-                        Log.d("SUCCESS TAG MyApp", Arrays.toString(new List[]{accounts}));
+                        Log.d("SUCCESS TAG MyApp", Arrays.toString(new List[]{accountList}));
 
                         connectBool = true;
                     }

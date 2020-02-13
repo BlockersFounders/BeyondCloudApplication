@@ -26,6 +26,7 @@ import com.samsung.android.sdk.blockchain.wallet.HardwareWallet;
 import com.samsung.android.sdk.blockchain.wallet.HardwareWalletType;
 
 import org.jetbrains.annotations.NotNull;
+import org.web3j.abi.FunctionEncoder;
 import org.web3j.abi.FunctionReturnDecoder;
 import org.web3j.abi.TypeReference;
 import org.web3j.abi.datatypes.Function;
@@ -132,16 +133,17 @@ public class SearchActivity extends AppCompatActivity {
 
                 BigInteger post = (BigInteger) type.getValue();
 
-                int length = post.intValue() - 1;
+                int length = post.intValue();
 
 
                 for (int i = 0; i < length; i++) {
-                    String index = Integer.toString(i);
+                    Function Intget = FunctionUtils.InttoHex(i);
+                    String res = FunctionEncoder.encode(Intget);
 
                     ethereumService.callSmartContractFunction(
                             (EthereumAccount) accountList.get(0),
                             "0x4af1b6125cca1b8cb15363aed2cc64c01937a5db",
-                            "0x9507d39a000000000000000000000000000000000000000000000000000000000000000" + index
+                            res
                     ).setCallback(new ListenableFutureTask.Callback<String>() {
                         @Override
                         public void onSuccess(String s) {
