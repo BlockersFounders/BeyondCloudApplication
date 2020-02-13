@@ -151,7 +151,7 @@
                         android:id="@+id/row_data_content"
                         android:layout_width="200dp"
                         android:layout_height="match_parent"
-                        android:hint="ex) Michael Jackson"
+                        android:hint=""
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
                 </com.google.android.material.textfield.TextInputLayout>
             </TableRow>
