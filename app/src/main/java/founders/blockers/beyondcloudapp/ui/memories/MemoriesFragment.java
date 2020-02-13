@@ -78,7 +78,7 @@ public class MemoriesFragment extends Fragment {
         } catch (SsdkUnsupportedException e) {
             e.printStackTrace();
         }
-        image.setImageResource(R.drawable.logo);
+        image.setImageResource(R.drawable.qrcode);
 
         _name=root.findViewById(R.id.name_field);
         _birth=root.findViewById(R.id.birth_field);

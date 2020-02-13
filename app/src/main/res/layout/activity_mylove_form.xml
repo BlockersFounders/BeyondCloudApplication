@@ -164,6 +164,9 @@
         android:layout_width="300dp"
         android:layout_height="45dp"
         android:textSize="20dp"
+        android:textAllCaps="true"
+        android:background="#9b92b3"
+        android:textColor="#ffffff"
         android:layout_gravity="center"
         android:text="save" />
 

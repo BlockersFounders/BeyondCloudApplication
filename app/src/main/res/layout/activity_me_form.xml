@@ -154,7 +154,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:hint="기쁜 일, 슬픈 일 좋은 사람들과 보내서 행복했다..."
+                    android:hint="기록하고 싶은 내용"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textAlignment="center"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -171,6 +171,8 @@
         android:layout_height="45dp"
         android:textSize="20dp"
         android:layout_gravity="center"
+        android:background="#9b92b3"
+        android:textColor="#ffffff"
         android:text="save" />
 
 
