@@ -111,7 +111,7 @@ public class MemoriesFragment extends Fragment {
 
                         ethereumService.callSmartContractFunction(
                                 (EthereumAccount) accountList.get(0),
-                                "0x07d55a62b487d61a0b47c2937016f68e4bcec0e9",
+                                "0x4af1b6125cca1b8cb15363aed2cc64c01937a5db",
                                 "0x7355a424"
                         ).setCallback(new ListenableFutureTask.Callback<String>() {
                             @Override
@@ -142,8 +142,8 @@ public class MemoriesFragment extends Fragment {
 
                                 ethereumService.callSmartContractFunction(
                                         (EthereumAccount) accountList.get(0),
-                                        "0x07d55a62b487d61a0b47c2937016f68e4bcec0e9",
-                                        "0x9507d39a000000000000000000000000000000000000000000000000000000000000000a"
+                                        "0x4af1b6125cca1b8cb15363aed2cc64c01937a5db",
+                                        "0x9507d39a000000000000000000000000000000000000000000000000000000000000000a" //a : 10~
                                 ).setCallback(new ListenableFutureTask.Callback<String>() {
                                     @Override
                                     public void onSuccess(String s) {

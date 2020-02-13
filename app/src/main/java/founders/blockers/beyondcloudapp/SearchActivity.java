@@ -60,10 +60,9 @@ public class SearchActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         searchBtn = findViewById(R.id.search_btn);
+        textView = findViewById(R.id.text_bottom);
 
         sBlockchain = new SBlockchain();
-
-        textView = findViewById(R.id.text_bottom);
 
         try {
             sBlockchain.initialize(this);
@@ -71,7 +70,7 @@ public class SearchActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        connect(); // connect to hardware-wallet through device
+        search(); // connect to hardware-wallet through device
 
 
         searchBtn.setOnClickListener(new View.OnClickListener() {
@@ -98,7 +97,7 @@ public class SearchActivity extends AppCompatActivity {
     private void printAll() {
 
         //String infuraAddress = "70ddb1f89ca9421885b6268e847a459d";
-        //dappSmartcontractAddress = "0x07d55a62b487d61a0b47c2937016f68e4bcec0e9";
+        //dappSmartcontractAddress = "0x4af1b6125cca1b8cb15363aed2cc64c01937a5db";
         //smartContractGetfunctionAddress = "0x7355a424";
 
         CoinNetworkInfo coinNetworkInfo = new CoinNetworkInfo(
@@ -115,7 +114,7 @@ public class SearchActivity extends AppCompatActivity {
 
         ethereumService.callSmartContractFunction(
                 (EthereumAccount) accountList.get(0),
-                "0x07d55a62b487d61a0b47c2937016f68e4bcec0e9",
+                "0x4af1b6125cca1b8cb15363aed2cc64c01937a5db",
                 "0x7355a424"
         ).setCallback(new ListenableFutureTask.Callback<String>() {
             @Override
@@ -141,7 +140,7 @@ public class SearchActivity extends AppCompatActivity {
 
                     ethereumService.callSmartContractFunction(
                             (EthereumAccount) accountList.get(0),
-                            "0x07d55a62b487d61a0b47c2937016f68e4bcec0e9",
+                            "0x4af1b6125cca1b8cb15363aed2cc64c01937a5db",
                             "0x9507d39a000000000000000000000000000000000000000000000000000000000000000" + index
                     ).setCallback(new ListenableFutureTask.Callback<String>() {
                         @Override
@@ -192,7 +191,7 @@ public class SearchActivity extends AppCompatActivity {
     }
 
 
-    private void connect() {
+    private void search() {
         sBlockchain.getHardwareWalletManager() //cold wallet 리턴
                 .connect(HardwareWalletType.SAMSUNG, true)
                 .setCallback(new ListenableFutureTask.Callback<HardwareWallet>() { //비동기 (oncreate 안의 함수들이 동작했는지 확인하기 위해! 개별적인 함수 connect, generate, .. 각각의 함수가 성공 후 성공했다고 리턴)
