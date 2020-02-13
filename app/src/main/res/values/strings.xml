@@ -10,9 +10,8 @@
     <string name="menu_memories">Memories</string>
     <string name="menu_addBlock">Add Block</string>
     <string name="menu_findBlock">Find Block</string>
-    <string name="menu_setting">Setting</string>
+    <string name="menu_setting">About BeyondCloud</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
-
 
 </resources>

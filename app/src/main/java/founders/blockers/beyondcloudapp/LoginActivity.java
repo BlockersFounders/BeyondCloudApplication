@@ -1,17 +1,17 @@
 package founders.blockers.beyondcloudapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.samsung.android.sdk.blockchain.ListenableFutureTask;
 import com.samsung.android.sdk.blockchain.SBlockchain;
+import com.samsung.android.sdk.blockchain.account.Account;
 import com.samsung.android.sdk.blockchain.exception.SsdkUnsupportedException;
 import com.samsung.android.sdk.blockchain.wallet.HardwareWallet;
 import com.samsung.android.sdk.blockchain.wallet.HardwareWalletType;
@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
 
     Boolean connectBool = false;
     String connectionMsg;
-
+    private Account generatedAccount;
     Button connectBtn;
     Button loginBtn;
     Button testSearchBtn;
@@ -85,6 +85,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private String connect(){
+
         sBlockchain.getHardwareWalletManager() //cold wallet 리턴
                 .connect(HardwareWalletType.SAMSUNG, true)
                 .setCallback(new ListenableFutureTask.Callback<HardwareWallet>() { //비동기 (oncreate 안의 함수들이 동작했는지 확인하기 위해! 개별적인 함수 connect, generate, .. 각각의 함수가 성공 후 성공했다고 리턴)
@@ -95,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                         connectionMsg = "connection success";
 
                         connectBool = true;
+
                     }
 
                     @Override
