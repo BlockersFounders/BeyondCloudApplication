@@ -1,6 +1,7 @@
 package founders.blockers.beyondcloudapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import founders.blockers.beyondcloudapp.function.FunctionUtils;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -145,7 +146,7 @@ public class SearchActivity extends AppCompatActivity {
                     ).setCallback(new ListenableFutureTask.Callback<String>() {
                         @Override
                         public void onSuccess(String s) {
-                            Log.d("SUCCESS TAG",  s);
+                            Log.d("SUCCESS TAG",  "account link success : "+s);
 
                             Function functionGetPost = FunctionUtils.callTx(length);
 

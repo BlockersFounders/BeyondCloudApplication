@@ -1,4 +1,4 @@
-package founders.blockers.beyondcloudapp;
+package founders.blockers.beyondcloudapp.function;
 /*
 
  createTx() : link to web3 transaction-creation function
