@@ -11,34 +11,24 @@ Development Logbook
 ------------------
 
 1. Develompent environment
-  - Android studio v3.5
+  - Android studio 3.5.3
   - Solidity ^0.5.10
   
 2. SDK
-  - BlockchainPlatformSDK_1.0.00
-  - KeystoreSDK_v1.2.0
+  - Samsung BlockchainPlatformSDK_1.0.00
+  - Samsung KeystoreSDK_v1.2.0
 
 
 
-Project Team members
+Development Task Distribution
 ------------------
 
-3. Role Allocation
-
-3.1 Planning
-  - Project planning : 강수현 고재웅 김정연 박지윤 박하영 정선웅
-  - User Interface Designing : 강수현 고재웅 박하영
-  - User Experience Designing : 강수현 고재웅 박하영
-  - Project documents : 강수현 고재웅 박하영
-  - Business Canvas Model : 강수현 고재웅 박하영
-  - QA :강수현 고재웅 김정연 박지윤 박하영 정선웅
-
-3.2 Development
+3.1 Development
   - Frontend (Android Studio) : 김정연 박지윤 정선웅
   - Backend (Samsung SDK): 김정연 박지윤 정선웅
   - Backend (Solidity): 정선웅
 
-3.3 Presentation
+3.2 Presentation
   - Presentation Powerpoint : 박지윤
   - Presenter :박지윤
  
@@ -47,7 +37,8 @@ Project Team members
  Project Details
  ---------------
  
- 4.1 Project Introduction
+ 4.1 Project Introduction </br>
+ 
  BeyondCloud는 블록체인 추모공간 서비스이다. </br>
  ‘구름 너머 당신을 언제까지나 기억할게요.’라는 의미의 이름이며, 사용자들은 앱을 통해 ‘잊고 싶지 않은 사람 혹은 순간’들을 블록체인 기술을 통해 온전하고 영원히 남긴다.</br>
  A simple way to make a loved one's memory on blockchain network. </br>
@@ -58,7 +49,7 @@ Project Team members
  영구적으로 존재하는 네트워크에 사용자들은 어떤 정보를 올리고 싶을까? </br>
  이에 대해 “사랑하는 사람에 대한 추억, 과거가 될 현재의 내 모습에 대한 기록, 먼훗날 만날 나(혹은 혹자)에게 전하는 말” 이라는 답변을 내놓으며, 영구적인 저장 공간이라는 가치를 제공한다. </br>
  
- 4.3 Blockchain Application Service
+ 4.3 Blockchain Application Service </br>
  
  4.3.1 [Keep my love on Block] </br>
  
